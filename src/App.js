@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Dropdown from "./Dropdown";
 
-function App() {
+const options = [
+  { value: "apple", label: "Apple" },
+  { value: "banana", label: "Banana" },
+  { value: "cherry", label: "Cherry" },
+  { value: "date", label: "Date" },
+  { value: "elderberry", label: "Elderberry" },
+];
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-full p-4 flex flex-col gap-10 justify-between mt-10 max-w-[900px] mx-auto">
+      <div className="flex flex-col gap-2">
+        <span className="text-sm font-bold">Single Selection</span>
+        <Dropdown options={options} searchable />
+      </div>
+      <div className="flex flex-col gap-2">
+        <span className="text-sm font-bold">Multiple Selections</span>
+        <Dropdown options={options} multiple searchable />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
